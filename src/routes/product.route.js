@@ -18,6 +18,7 @@ router.post('/add', (req, res) => {
 });
 router.delete('/add',(req,res)=>{
   data=[];
+  res.render(path.join(__dirname, '../views', 'products-form.ejs'),{data:data});
   res.send('done');
 })
 
