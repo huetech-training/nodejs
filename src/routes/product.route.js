@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   });
 });
 
-const data=[];
+let data=[];
 router.post('/add', (req, res) => {
   const body=req.body;
   console.log(body);
@@ -18,6 +18,7 @@ router.post('/add', (req, res) => {
 });
 router.delete('/add',(req,res)=>{
   data=[];
+  res.send('done');
 })
 
 router.get('/add', (req, res) => {

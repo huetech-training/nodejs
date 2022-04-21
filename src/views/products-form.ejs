@@ -4,25 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='/public/form.css'>
+    <script type="text/javascript" src="/public/form.js"></script>
     <title>Add Products</title>
 </head>
 <body>
     <form action="/product/add" method="post">
-        <input type="text" name="product" placeholder="Product Name">
-        <input type="text" name="type" placeholder="Product Type">
-        <input type="text" name="description" placeholder="Product Description">
-        <button type="submit">Submit</button>
+        <div class="flex">
+            <label for="product">Name</label>
+            <input type="text" name="product" placeholder="Product Name">
+        </div>
+        <div class="flex">
+            <label for="type">Type</label>
+            <input type="text" name="type" placeholder="Product Type">
+        </div>
+        <div class="flex">
+            <label for="description">Description</label>
+            <input type="text" name="description" placeholder="Product Description">
+        </div>
+        <button type="submit" >Add</button>
     </form>
-    <a href="/product/add?_method=DELETE" >Are you sure</a>
+    <button id="delete" onclick="deletes()">Delete</button>
     <% for(var i=0;i<data.length;i++ ) { %>
         <table>
             <tbody>
                 <tr>
-                    <td>Name</td>
+                    <td class="label">Name</td>
                     <td><%= data[i].product %></td>
-                    <td>Type</td>
+                    <td class="label">Type</td>
                     <td><%= data[i].type %></td>
-                    <td>Description</td>
+                    <td class="label">Description</td>
                     <td><%= data[i].description %></td>
                 </tr>
             </tbody>
