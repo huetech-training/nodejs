@@ -8,10 +8,25 @@
 </head>
 <body>
     <form action="/product/add" method="post">
-        <input type="text" placeholder="Product Name">
-        <input type="text" placeholder="Product Type">
-        <input type="text" placeholder="Product Description">
-        <button>Submit</button>
+        <input type="text" name="product" placeholder="Product Name">
+        <input type="text" name="type" placeholder="Product Type">
+        <input type="text" name="description" placeholder="Product Description">
+        <button type="submit">Submit</button>
     </form>
+    <a href="/product/add?_method=DELETE" >Are you sure</a>
+    <% for(var i=0;i<data.length;i++ ) { %>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td><%= data[i].product %></td>
+                    <td>Type</td>
+                    <td><%= data[i].type %></td>
+                    <td>Description</td>
+                    <td><%= data[i].description %></td>
+                </tr>
+            </tbody>
+        </table>
+        <% } %>
 </body>
 </html>

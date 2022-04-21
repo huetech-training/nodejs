@@ -9,12 +9,19 @@ router.get('/', (req, res) => {
   });
 });
 
+const data=[];
 router.post('/add', (req, res) => {
-  res.send('<h2>Add Product</h2>');
+  const body=req.body;
+  console.log(body);
+  data.push(body);
+  res.render(path.join(__dirname, '../views', 'products-form.ejs'),{data:data});
 });
+router.delete('/add',(req,res)=>{
+  data=[];
+})
 
 router.get('/add', (req, res) => {
-  res.render(path.join(__dirname, '../views', 'products-form.ejs'));
+  res.render(path.join(__dirname, '../views', 'products-form.ejs'),{data:[]});
 });
 
 module.exports = router;
